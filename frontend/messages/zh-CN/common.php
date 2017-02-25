@@ -1,0 +1,9 @@
+<?php
+return[
+    'Blog'=>'博客',
+    'About'=>'关于',
+    'Contact'=>'联系',
+    'Login'=>'登录',
+    'Signup'=>'注册',
+    'Article'=>'文章'
+];
