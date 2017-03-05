@@ -14,9 +14,18 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin()?>
             <?=$form->field($model,'title')->textinput(['maxlength'=>true])?>
             <?=$form->field($model,'cat_id')->dropDownList(['1'=>'php','2'=>'mysql','3'=>'redis'])?>
-            <?=$form->field($model,'content')->textinput(['maxlength'=>true])?>
-            <?=$form->field($model,'label_img')->textinput(['maxlength'=>true])?>
-            <?=$form->field($model,'tags')->textinput(['maxlength'=>true])?>
+            <?= $form->field($model, 'label_img')->widget('common\widgets\file_upload\FileUpload',[
+                'config'=>[
+                    //图片上传的一些配置，不写调用默认配置
+                    // 'domain_url' => 'http://www.yii-china.com',
+                ]
+            ]) ?>
+            <?= $form->field($model, 'content')->widget('common\widgets\ueditor\Ueditor',[
+                'options'=>[
+                    // 'initialFrameWidth' => 850,
+                ]
+            ]) ?>
+            <?=$form->field($model,'tags')->widget('common\widgets\tags\TagWidget.php')?>
             <div class="form-group">
                 <?=Html::submitButton("发布",['class'=>'btn btn-success'])?>
             </div>
