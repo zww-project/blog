@@ -22,6 +22,8 @@ use Yii;
  */
 class PostModel extends BaseModel
 {
+    const IS_VALID = 1; //发布
+    const NO_VALID = 0; //未发布
     /**
      * @inheritdoc
      */
@@ -60,5 +62,23 @@ class PostModel extends BaseModel
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * 文章和标签的关系 一对多 relation_post_tag
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRelate()
+    {
+        return $this->hasMany(RelationPostTagsModel::className(),['post_id'=>'id']);
+    }
+
+    /**
+     * 关联文章统计 post_extends
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExtend()
+    {
+        return $this->hasOne(PostExtendModel::className(),['post_id'=>'id']);
     }
 }

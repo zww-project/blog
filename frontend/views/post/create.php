@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'initialFrameWidth' => 850,
                 ]
             ]) ?>
-            <?=$form->field($model,'tags')->widget('common\widgets\tags\TagWidget.php')?>
+            <?=$form->field($model,'tags')->widget('common\widgets\tags\TagWidget')?>
             <div class="form-group">
                 <?=Html::submitButton("发布",['class'=>'btn btn-success'])?>
             </div>

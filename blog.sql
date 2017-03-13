@@ -53,3 +53,13 @@ CREATE TABLE `relation_post_tags` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `post_id` (`post_id`,`tag_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COMMENT='文章和标签关系表';
+
+CREATE TABLE `post_extends` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `post_id` int(11) DEFAULT NULL COMMENT '文章id',
+  `browser` int(11) DEFAULT '0' COMMENT '浏览量',
+  `collect` int(11) DEFAULT '0' COMMENT '收藏量',
+  `praise` int(11) DEFAULT '0' COMMENT '点赞',
+  `comment` int(11) DEFAULT '0' COMMENT '评论',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='文章扩展表';
